@@ -3,4 +3,13 @@ node_modules
 yarn.lock
 .eslintrc
 babel.config.js
-package.json
+**.json
+**/target
+**/*.rs.bk
+Cargo.lock
+README.md
+
+tests/
+**.spec.js
+**.spec.ts
+**.test.ts
