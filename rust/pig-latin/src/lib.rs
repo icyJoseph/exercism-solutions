@@ -40,6 +40,7 @@ fn consonant_cluster(word: String) -> String {
         let cluster_len = cluster.len();
         let rest_len = rest.len();
         if cluster.ends_with("y") && cluster_len > 1 || rest_len == 0 {
+            // y case
             // when rest len is zero, everything was a consonant!
             let y_index = cluster.find("y").unwrap_or_else(|| cluster_len);
             let without_y = &cluster[0..y_index];
@@ -54,16 +55,14 @@ fn consonant_cluster(word: String) -> String {
             translated_word.push_str(without_y);
             translated_word.push_str(SUFFIX);
             return translated_word;
-
-        // y case
         } else if cluster.ends_with("q") && rest.starts_with("u") {
+            //qu case
             let qu_rest = &rest[1..];
             translated_word.push_str(qu_rest);
             translated_word.push_str(cluster);
             translated_word.push_str("u");
             translated_word.push_str(SUFFIX);
             return translated_word;
-        //qu case
         } else if cluster.starts_with("xr") || cluster.starts_with("yt") {
             translated_word.push_str(word.as_str());
             return translated_word;
